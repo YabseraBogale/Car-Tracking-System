@@ -1,0 +1,4 @@
+<?php
+# Project entry point
+
+?>
