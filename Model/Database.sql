@@ -1,5 +1,8 @@
+-- name of database
+create database carTrackingSystem;
+
 create table User(
-    userid int AUTO_INCREMENT not null primary key,
+    userid int NOT NULL primary key AUTO_INCREMENT,
     firstname varchar(20) not null,
     lastname varchar(20) not null,
     middlename varchar(20) not null,
@@ -27,6 +30,11 @@ create table Admin(
 
 -- insert statments
 insert into User(firstname,middlename,lastname,phonenumber,password) values(,,,)
+
+-- example
+
+
+insert into User(firstname,middlename,lastname,phonenumber,password) values("yabsera","bogale","abate",251920201161,"123qwe")
 
 insert into Car(platenumber,driverid,currentlocation,startinglocation,carimage) values(,,,,)
 
