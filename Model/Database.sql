@@ -24,3 +24,12 @@ create table Admin(
     password varchar(30) not null,
     FOREIGN KEY (driverid) REFERENCES User(userid) 
 )
+
+-- insert statments
+insert into User(firstname,middlename,lastname,phonenumber,password) values(,,,)
+
+insert into Car(platenumber,driverid,currentlocation,startinglocation,carimage) values(,,,,)
+
+-- select statemnts for cars
+
+ 
