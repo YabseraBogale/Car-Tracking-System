@@ -22,7 +22,7 @@ create table Car(
 create table Admin(
     userid int not null,
     password varchar(30) not null,
-    FOREIGN KEY (driverid) REFERENCES User(userid) 
+    FOREIGN KEY (userid) REFERENCES User(userid)  
 )
 
 -- insert statments
