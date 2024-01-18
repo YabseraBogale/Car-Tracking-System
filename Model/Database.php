@@ -7,6 +7,13 @@ class Database{
     protected function CreateUser($username,$firstname,$lastname,$password){
 
     }
+    protected function UserAddCar($userid,$carplate){
+
+    }
+    protected function UserRemove($userid,$carplate){
+
+    }
+
 }
 
 ?>
