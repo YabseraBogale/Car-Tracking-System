@@ -9,5 +9,18 @@ create table User(
 )
 
 create table Car(
+    platenumber varchar(12) not null primary key,
+    driverid int not null,
+    currentlocation json not null,
+    startinglocation json not null,
+    carimage varchar(30) not null,
+    FOREIGN KEY (driverid) REFERENCES User(userid) 
+)
 
+
+-- Admin roles are going to be in the form of function
+create table Admin(
+    userid int not null,
+    password varchar(30) not null,
+    FOREIGN KEY (driverid) REFERENCES User(userid) 
 )
