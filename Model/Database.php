@@ -10,9 +10,13 @@ class Database{
     protected function UserAddCar($userid,$carplate){
 
     }
-    protected function UserRemove($userid,$carplate){
+    protected function UserRemoveCar($userid,$carplate){
 
     }
+    protected function UserUpdateCar($userid,$carplate){
+
+    }
+    
 
 }
 
