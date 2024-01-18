@@ -2,9 +2,11 @@
 
 class Database{
     protected function Connection(){
-        $connection=new mysqli
+        
     }
+    protected function CreateUser($username,$firstname,$lastname,$password){
 
+    }
 }
 
 ?>
