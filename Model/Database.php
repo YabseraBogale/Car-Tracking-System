@@ -20,11 +20,17 @@ class Database{
     }
 
     protected function CreateUser($firstname,$lastname,$middlename,$phonenumber,$password){
-        $hash_pass=password_hash($password,PASSWORD_DEFAULT);
-        $statment=$this->OpenConnection()->prepare("insert into User(firstname,middlename,lastname,password,phonenumber) values(?,?,?,?,?)");
-        $statment->bind_param("ssssi",$firstname,$middlename,$lastname,$hash_pass,$phonenumber);
-        $statment->execute();
-        $this.CloseConnection();
+        try{
+
+            $hash_pass=password_hash($password,PASSWORD_DEFAULT);
+            $statment=$this->OpenConnection()->prepare("insert into User(firstname,middlename,lastname,password,phonenumber) values(?,?,?,?,?)");
+            $statment->bind_param("ssssi",$firstname,$middlename,$lastname,$hash_pass,$phonenumber);
+            $statment->execute();
+            $this.CloseConnection();
+            return "inserted";
+        } catch(Exception $e){
+            return $e->getMessage();
+        }
         
     }
     protected function UserAddCar($userid,$carplate){
