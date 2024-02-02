@@ -32,11 +32,31 @@ class Database{
         }
         
     }
-    protected function UserAddCar($userid,$carplate){
-        
+    protected function UserAddCar($phonenumber,$platenumber,$carimage){
+        try{
+            
+            $statment=$this->OpenConnection()->prepare("insert into Car(driverid,platenumber,carimage) values(?,?,?)");
+            $statment->bind_param("iss",$phonenumber,$platenumber,$carimage);
+            $statment->execute();
+            $this.CloseConnection();
+            return "inserted";
+        } catch(Exception $e){
+            return $e->getMessage();
+        }
 
     }
-    protected function UserRemoveCar($userid,$carplate){
+    protected function UserRemoveCar($phonenumber,$carplate){
+        try{
+            
+            $statment=$this->OpenConnection()->prepare("DELETE FROM Car WHERE driverid=?");
+            $statment->bind_param("iss",$password,$platenumber,$carimage);
+            $statment->execute();
+            $this.CloseConnection();
+            return "inserted";
+        } catch(Exception $e){
+            return $e->getMessage();
+        }
+
 
     }
     protected function UserUpdateCar($userid,$carplate){
