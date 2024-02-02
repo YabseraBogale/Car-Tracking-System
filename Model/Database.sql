@@ -13,7 +13,7 @@ create table User(
     phonenumber int not null primary key,
     -- needs to be hashed and then stored in the databases
     password varchar(30) not null
-)
+);
 
 create table Car(
     platenumber varchar(12) not null primary key,
