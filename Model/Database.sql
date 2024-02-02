@@ -18,8 +18,8 @@ create table User(
 create table Car(
     platenumber varchar(12) not null primary key,
     driverid int not null,
-    currentlocation text not null,
-    startinglocation text not null,
+    currentlocation text,
+    startinglocation text,
     carimage varchar(30) not null,
     FOREIGN KEY (driverid) REFERENCES User(phonenumber) 
 );

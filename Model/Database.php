@@ -21,7 +21,6 @@ class Database{
 
     protected function CreateUser($firstname,$lastname,$middlename,$phonenumber,$password){
         try{
-
             $hash_pass=password_hash($password,PASSWORD_DEFAULT);
             $statment=$this->OpenConnection()->prepare("insert into User(firstname,middlename,lastname,password,phonenumber) values(?,?,?,?,?)");
             $statment->bind_param("ssssi",$firstname,$middlename,$lastname,$hash_pass,$phonenumber);
