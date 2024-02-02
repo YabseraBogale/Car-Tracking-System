@@ -19,13 +19,14 @@ class Database{
         return "closed";
     }
 
-    public function CreateUser($firstname,$lastname,$middlename,$phonenumber,$password){
+    public function CreateUser($firstname,$lastname,$middlename,$password,$phonenumber){
         try{
             $hash_pass=password_hash($password,PASSWORD_DEFAULT);
-            $statment=$this->OpenConnection()->query("insert into User(firstname,middlename,lastname,password,phonenumber) values(?,?,?,?,?);");
-            $statment->bind_param("sssis",$firstname,$middlename,$lastname,$phonenumber,$hash_pass);
-            $statment->execute();
-            $this.CloseConnection();
+            $this->OpenConnection()->query("insert into User(firstname,middlename,lastname,password,phonenumber) values('$firstname','$middlename','$lastname','$hash_pass',$phonenumber)");
+            //$statment=$this->OpenConnection()->prepare("insert into User(firstname,middlename,lastname,password,phonenumber) values(?,?,?,?,?)");
+            //$statment->bind_param("ssssi",$firstname,$middlename,$lastname,$hash_pass,$phonenumber);
+            //$statment->execute();
+            //$this->CloseConnection();
             return "inserted";
         } catch(Exception $e){
             return $e->getMessage();
