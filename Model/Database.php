@@ -34,7 +34,6 @@ class Database{
     }
     protected function UserAddCar($phonenumber,$platenumber,$carimage){
         try{
-            
             $statment=$this->OpenConnection()->prepare("insert into Car(driverid,platenumber,carimage) values(?,?,?)");
             $statment->bind_param("iss",$phonenumber,$platenumber,$carimage);
             $statment->execute();
@@ -47,7 +46,6 @@ class Database{
     }
     protected function UserRemoveCar($phonenumber,$carplate){
         try{
-            
             $statment=$this->OpenConnection()->prepare("DELETE FROM Car WHERE driverid=?");
             $statment->bind_param("iss",$password,$platenumber,$carimage);
             $statment->execute();
