@@ -12,7 +12,7 @@ create table User(
     middlename varchar(20) not null,
     phonenumber int not null primary key,
     -- needs to be hashed and then stored in the databases
-    password varchar(30) not null
+    password varchar(255) not null
 );
 
 create table Car(

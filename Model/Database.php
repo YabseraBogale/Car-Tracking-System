@@ -11,7 +11,7 @@ class Database{
             return "err";
         }
         else{
-            return $connection;
+            return $connection->pre;
         }
     }
     protected function CloseConnection(){
@@ -19,7 +19,9 @@ class Database{
         return "closed";
     }
 
-    protected function CreateUser($username,$firstname,$lastname,$password){
+    protected function CreateUser($firstname,$lastname,$middlename,$phonenumber,$password){
+        $hash_pass=password_hash($password,PASSWORD_DEFAULT);
+        $stamtment=mysql_escape_string("insert into User(firstname,middlename,lastname,phonenumber,password) values('$firstname','$lastname','$middlename',$phonenumber,)");
 
     }
     protected function UserAddCar($userid,$carplate){
