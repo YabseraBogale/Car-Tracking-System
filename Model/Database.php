@@ -20,7 +20,7 @@ class Database{
         return "closed";
     }
 
-    protected function CreateUser($firstname,$lastname,$middlename,$phonenumber,$password){
+    public function CreateUser($firstname,$lastname,$middlename,$phonenumber,$password){
         try{
             $hash_pass=password_hash($password,PASSWORD_DEFAULT);
             $statment=$this->OpenConnection()->query("insert into User(firstname,middlename,lastname,password,phonenumber) values(?,?,?,?,?)");
@@ -57,11 +57,14 @@ class Database{
         }
 
     }
-    protected function SeeAllCarInformation($phonenumber){
+    public function SeeAllCarInformation($phonenumber){
         try{
             $statment=$this->OpenConnection()->prepare("Select * FROM Car WHERE driverid=?");
-            $statment->bind_param("s",$platenumber);
-            $statment->execute();
+            $statment->bind_param("i",$phonenumber);
+            $result=$statment->execute();
+            while($row=$result->fetch_assoc()){
+                echo $row['platenumber'];
+            }
         }catch(Exception $e){
             return $e->getMessage();
         }
