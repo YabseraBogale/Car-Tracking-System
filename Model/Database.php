@@ -1,17 +1,17 @@
 <?php
 
 class Database{
-    private string $username="yabsera";
-    private string $server="localhost";
-    private string $password="12345678";
-    private string $database="carTrackingSystem";
+    private $username="yabsera";
+    private $server="localhost";
+    private $password="12345678";
+    private $database="carTrackingSystem";
     protected function OpenConnection(){
         $connection=new mysqli($this->server,$this->username,$this->password,$this->database);
         if($connection->connect_errno){
             return "err";
         }
         else{
-            return $connection->pre;
+            return $connection;
         }
     }
     protected function CloseConnection(){
@@ -21,8 +21,11 @@ class Database{
 
     protected function CreateUser($firstname,$lastname,$middlename,$phonenumber,$password){
         $hash_pass=password_hash($password,PASSWORD_DEFAULT);
-        $stamtment=mysql_escape_string("insert into User(firstname,middlename,lastname,phonenumber,password) values('$firstname','$lastname','$middlename',$phonenumber,)");
-
+        $statment=$this->OpenConnection()->prepare("insert into User(firstname,middlename,lastname,password,phonenumber) values(?,?,?,?,?)");
+        $statment->bind_param("ssssi",$firstname,$middlename,$lastname,$hash_pass,$phonenumber);
+        $statment->execute();
+        $this.CloseConnection();
+        
     }
     protected function UserAddCar($userid,$carplate){
         
