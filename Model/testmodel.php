@@ -1,8 +1,9 @@
 <?php
 
-include "Database";
+include "Database.php";
 
 
 $conn=new Database();
-echo $conn->OpenConnection();
+$result=$conn->CreateUser('Yabsera','Bogale','Abate',9201161,"dsa");
+echo $result;
 ?>
