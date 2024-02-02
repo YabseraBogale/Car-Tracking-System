@@ -20,13 +20,13 @@ class Database{
         return "closed";
     }
 
-    public function CreateUser($firstname,$lastname,$middlename,$phonenumber,$password){
+    protected function CreateUser($firstname,$lastname,$middlename,$phonenumber,$password){
         try{
             $hash_pass=password_hash($password,PASSWORD_DEFAULT);
-            $this->OpenConnection()->query("insert into User(firstname,middlename,lastname,password,phonenumber) values('$firstname','$middlename','$lastname','$hash_pass',$phonenumber)");
-            //$statment->bind_param("ssssi",$firstname,$middlename,$lastname,$hash_pass,$phonenumber);
-            //$statment->execute();
-            //$this.CloseConnection();
+            $statment=$this->OpenConnection()->query("insert into User(firstname,middlename,lastname,password,phonenumber) values(?,?,?,?,?)");
+            $statment->bind_param("ssssi",$firstname,$middlename,$lastname,$hash_pass,$phonenumber);
+            $statment->execute();
+            $this.CloseConnection();
             return "inserted";
         } catch(Exception $e){
             return $e->getMessage();
@@ -45,10 +45,10 @@ class Database{
         }
 
     }
-    protected function UserRemoveCar($phonenumber,$carplate){
+    protected function UserRemoveCar($platenumber){
         try{
             $statment=$this->OpenConnection()->prepare("DELETE FROM Car WHERE driverid=?");
-            $statment->bind_param("iss",$password,$platenumber,$carimage);
+            $statment->bind_param("s",$platenumber);
             $statment->execute();
             $this.CloseConnection();
             return "inserted";
