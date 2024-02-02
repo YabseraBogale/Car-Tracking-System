@@ -47,7 +47,7 @@ class Database{
     }
     protected function UserRemoveCar($platenumber){
         try{
-            $statment=$this->OpenConnection()->prepare("DELETE FROM Car WHERE driverid=?");
+            $statment=$this->OpenConnection()->prepare("DELETE FROM Car WHERE platenumber=?");
             $statment->bind_param("s",$platenumber);
             $statment->execute();
             $this.CloseConnection();
@@ -56,7 +56,15 @@ class Database{
             return $e->getMessage();
         }
 
-
+    }
+    protected function SeeAllCarInformation($phonenumber){
+        try{
+            $statment=$this->OpenConnection()->prepare("Select * FROM Car WHERE driverid=?");
+            $statment->bind_param("s",$platenumber);
+            $statment->execute();
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
     }
     protected function UserUpdateCar($userid,$carplate){
 
