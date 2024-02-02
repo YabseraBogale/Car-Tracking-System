@@ -7,11 +7,10 @@
 create database carTrackingSystem;
 
 create table User(
-    userid int NOT NULL primary key,
     firstname varchar(20) not null,
     lastname varchar(20) not null,
     middlename varchar(20) not null,
-    phonenumber int not null,
+    phonenumber int not null primary key,
     -- needs to be hashed and then stored in the databases
     password varchar(30) not null
 )
@@ -22,7 +21,7 @@ create table Car(
     currentlocation text not null,
     startinglocation text not null,
     carimage varchar(30) not null,
-    FOREIGN KEY (driverid) REFERENCES User(userid) 
+    FOREIGN KEY (driverid) REFERENCES User(phonenumber) 
 );
 
 
@@ -30,7 +29,7 @@ create table Car(
 create table Admin(
     userid int not null,
     password varchar(30) not null,
-    FOREIGN KEY (userid) REFERENCES User(userid)  
+    FOREIGN KEY (userid) REFERENCES User(phonenumber)  
 );
 
 -- insert statments
