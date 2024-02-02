@@ -2,7 +2,7 @@
 create database carTrackingSystem;
 
 create table User(
-    userid int NOT NULL primary key AUTO_INCREMENT,
+    userid int NOT NULL primary key,
     firstname varchar(20) not null,
     lastname varchar(20) not null,
     middlename varchar(20) not null,
