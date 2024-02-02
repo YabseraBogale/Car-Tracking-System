@@ -1,4 +1,9 @@
 -- name of database
+-- username: yabsera
+-- used pass here and published as it was school project and password shouldn't be made public
+-- password: 12345678
+
+
 create database carTrackingSystem;
 
 create table User(
@@ -14,11 +19,11 @@ create table User(
 create table Car(
     platenumber varchar(12) not null primary key,
     driverid int not null,
-    currentlocation json not null,
-    startinglocation json not null,
+    currentlocation text not null,
+    startinglocation text not null,
     carimage varchar(30) not null,
     FOREIGN KEY (driverid) REFERENCES User(userid) 
-)
+);
 
 
 -- Admin roles are going to be in the form of function
@@ -26,7 +31,7 @@ create table Admin(
     userid int not null,
     password varchar(30) not null,
     FOREIGN KEY (userid) REFERENCES User(userid)  
-)
+);
 
 -- insert statments
 insert into User(firstname,middlename,lastname,phonenumber,password) values(,,,)
