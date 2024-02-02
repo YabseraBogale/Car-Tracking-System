@@ -1,5 +1,4 @@
 <?php
-
 class Database{
     private $username="yabsera";
     private $server="localhost";
@@ -23,8 +22,8 @@ class Database{
     public function CreateUser($firstname,$lastname,$middlename,$phonenumber,$password){
         try{
             $hash_pass=password_hash($password,PASSWORD_DEFAULT);
-            $statment=$this->OpenConnection()->query("insert into User(firstname,middlename,lastname,password,phonenumber) values(?,?,?,?,?)");
-            $statment->bind_param("ssssi",$firstname,$middlename,$lastname,$hash_pass,$phonenumber);
+            $statment=$this->OpenConnection()->query("insert into User(firstname,middlename,lastname,password,phonenumber) values(?,?,?,?,?);");
+            $statment->bind_param("sssis",$firstname,$middlename,$lastname,$phonenumber,$hash_pass);
             $statment->execute();
             $this.CloseConnection();
             return "inserted";
@@ -57,17 +56,9 @@ class Database{
         }
 
     }
+
     public function SeeAllCarInformation($phonenumber){
-        try{
-            $statment=$this->OpenConnection()->prepare("Select * FROM Car WHERE driverid=?");
-            $statment->bind_param("i",$phonenumber);
-            $result=$statment->execute();
-            while($row=$result->fetch_assoc()){
-                echo $row['platenumber'];
-            }
-        }catch(Exception $e){
-            return $e->getMessage();
-        }
+        
     }
     protected function UserUpdateCar($userid,$carplate){
 
