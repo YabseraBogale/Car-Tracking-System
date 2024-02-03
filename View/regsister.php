@@ -12,6 +12,7 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
     $result=$connect->CreateUser($firstname,$lastname,$middlename,$password,$phonenumber);
     if($result=="inserted"){
         $_SERVER["logged"]=true;
+        $_SESSION['phonenumber']=$phonenumber;
         header('location:car.php');
         exit;
     } else{

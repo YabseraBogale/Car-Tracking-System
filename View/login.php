@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     $result=$connection->OpenConnection()->query("select * from User");
     while($row=$result->fetch_assoc()){
         if($row['phonenumber']===$phonenumber && $row['password']===$password){
-            $_SESSION['user']=$phonenumber;
+            $_SESSION['phonenumber']=$phonenumber;
             $_SESSION['logged']=true;
             header('location:car.php');
             exit;
