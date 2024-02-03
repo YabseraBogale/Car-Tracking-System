@@ -1,6 +1,14 @@
 <?php
     include "Database.php";
     if($_SERVER['REQUEST_METHOD']==="POST"){
+        $driverid=$_POST['driverid'];
+        $platenumber=$_POST['platenumber'];
+        $filetype=['jpge','png','jepg'];
+        $uploaddir='uploads/';
+        $uploadfile = $uploaddir . basename($_FILES['image']['name']);
+        $fileType=$_FILES['image']['type'];
+        echo $fileType;
+
 
     }
 
