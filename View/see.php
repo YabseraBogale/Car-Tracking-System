@@ -26,10 +26,7 @@ $driverid=$_SESSION['phonenumber'];
                         <?php echo $row['driverid'];?>
                     </td>
                     <td>
-                        <form action="" method="post">
-                            remove <?php echo $row['platenumber'];?>
-                            <input type="submit" value="Enter">
-                        </form>
+                        <?php echo $row['platenumber'];?>
                     </td>
                 </tr>    
                 <?php
