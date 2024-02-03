@@ -21,7 +21,7 @@ create table Car(
     currentlocation text,
     startinglocation text,
     carimage varchar(30) not null,
-    FOREIGN KEY (driverid) REFERENCES User(phonenumber) 
+    
 );
 
 
@@ -29,7 +29,7 @@ create table Car(
 create table Admin(
     userid int not null,
     password varchar(30) not null,
-    FOREIGN KEY (userid) REFERENCES User(phonenumber)  
+   
 );
 
 -- insert statments

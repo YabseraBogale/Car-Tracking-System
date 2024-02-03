@@ -1,7 +1,7 @@
 <?php 
+include "Database.php";
 session_start();
-
-
+$connection=new Database();
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,9 @@ session_start();
 </head>
 <body>
     <table>
+        <?php
         
+        ?>
     </table>
     <a href="car.php">back</a>
 </body>

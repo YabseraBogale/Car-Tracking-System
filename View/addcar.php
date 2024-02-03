@@ -1,13 +1,14 @@
 <?php
     include "Database.php";
     if($_SERVER['REQUEST_METHOD']==="POST"){
+        $connection=new Database();
         $driverid=$_POST['driverid'];
         $platenumber=$_POST['platenumber'];
         $target_dir = "uploads/";
-        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        $target_file = $target_dir . basename($_FILES["images"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-        $check = getimagesize($_FILES["image"]["tmp_name"]);
+        $check = getimagesize($_FILES["images"]["tmp_name"]);
         if($check !== false) {
             echo "File is an image - " . $check["mime"] . ".";
             $uploadOk = 1;
@@ -20,7 +21,7 @@
             $uploadOk = 0;
         }
         // Check file size
-        if ($_FILES["image"]["size"] > 500000) {
+        if ($_FILES["images"]["size"] > 500000) {
             echo "Sorry, your file is too large.";
             $uploadOk = 0;
         }
@@ -32,12 +33,14 @@
             echo "Sorry, your file was not uploaded.";
           // if everything is ok, try to upload file
         } else {
-            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-              echo "The file ". htmlspecialchars( basename( $_FILES["image"]["name"])). " has been uploaded.";
+            if (move_uploaded_file($_FILES["images"]["tmp_name"], $target_file)) {
+              
+              $connection->OpenConnection()->query("insert into Car(driverid,platenumber,carimage) values($driverid,'$platenumber','$target_file')");
             } else {
               echo "Sorry, there was an error uploading your file.";
             }
         }
+        
     }
 ?>
 <!DOCTYPE html>
@@ -74,7 +77,7 @@
                     Car Image
                 </td>
                 <td>
-                    <input type="file" name="image" id="">
+                    <input type="file" name="images" id="">
                 </td>
             </tr>
             <tr>
