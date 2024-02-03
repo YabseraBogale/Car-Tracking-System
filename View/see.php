@@ -2,6 +2,7 @@
 include "Database.php";
 session_start();
 $connection=new Database();
+$driverid=$_SESSION['phonenumber'];
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +15,25 @@ $connection=new Database();
 <body>
     <table>
         <?php
-        
+            $result=$connection->OpenConnection()->query("Select * from Car where driverid=$driverid");
+            while($row=$result->fetch_assoc()){
+                    ?>
+                <tr>
+                    <td>
+                        <img src="<?php echo $row['carimage']; ?>" alt="carimage">
+                    </td>
+                    <td>
+                        <?php echo $row['driverid'];?>
+                    </td>
+                    <td>
+                        <form action="" method="post">
+                            remove <?php echo $row['platenumber'];?>
+                            <input type="submit" value="Enter">
+                        </form>
+                    </td>
+                </tr>    
+                <?php
+            }
         ?>
     </table>
     <a href="car.php">back</a>
