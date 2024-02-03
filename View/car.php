@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +10,19 @@
     <title>Car Information</title>
 </head>
 <body>
-    
+    <nav>
+        <a href="signout.php">Sign out</a>
+    </nav>
+    <ul>
+        <li>
+            <a href="addcar.php">Add Car</a>
+        </li>
+        <li>
+            <a href="location.php">Location</a>
+        </li>
+        <li>
+            <a href="see.php">See All Cars</a>
+        </li>
+    </ul>
 </body>
 </html>

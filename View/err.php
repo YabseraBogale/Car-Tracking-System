@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regsister</title>
+    <title>Error Page</title>
 </head>
 <body>
     <nav>
@@ -13,13 +13,7 @@
         <a href="regsister.php">Register</a>
     </nav>
     <h1>
-        What is MTY Track ?
+        Error in Database
     </h1>
-    <p>
-
-    </p>
-    <p>
-
-    </p>
 </body>
 </html>

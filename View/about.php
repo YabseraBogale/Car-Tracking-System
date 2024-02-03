@@ -12,14 +12,6 @@
         <a href="about.php">about</a>
         <a href="regsister.php">Register</a>
     </nav>
-    <h1>
-        What is MTY Track ?
-    </h1>
-    <p>
-
-    </p>
-    <p>
-
-    </p>
+    
 </body>
 </html>
