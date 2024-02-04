@@ -1,4 +1,0 @@
-<?php
-# Project entry point
-
-?>
