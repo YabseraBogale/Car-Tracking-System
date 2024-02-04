@@ -1,0 +1,29 @@
+*{
+    padding: 10px;
+}
+
+nav{
+    text-align: end;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+
+table{
+    border: 2px solid black;
+    border-radius: 3px;
+    margin-left: 50%;
+    margin-right: 50%;
+}
+
+.sign{
+    border: 2px solid black;
+    border-radius: 3px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
