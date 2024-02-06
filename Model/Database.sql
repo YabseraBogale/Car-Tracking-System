@@ -25,7 +25,12 @@ create table Car(
 
 )
 
-
+create table Location(
+    id int not null AUTO_INCREMENT primary key,
+    lat int not null,
+    long int not null,
+    foreign key(id) references Car(id)
+)
 
 create table Admin(
     id int not null AUTO_INCREMENT primary key,
@@ -35,8 +40,10 @@ create table Admin(
 )
 
 
-insert into Admin(username) values('?','?')
+insert
+
+insert into Admin(username,password) values('?','?')
 insert into User(firstname,lastname,username,email,password) values('?','?','?','?','?');
 insert into Car(platenumber,carimage) values('?','?')
-
+insert into Location(lat,long) values(?,?)
 Delete from CAR Where platenumber="?";
