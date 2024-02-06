@@ -16,8 +16,7 @@ class View extends Controller{
         
     }
     function signup($firstname,$lastname,$username,$email,$password){
-        $result=$this->CreateUser($firstname,$lastname,$username,$email,$password);
-        return $result;
+        $this->signup($firstname,$lastname,$username,$email,$password);
     }
     function signupForm(){
         echo'

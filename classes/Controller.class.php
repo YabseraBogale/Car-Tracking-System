@@ -11,6 +11,14 @@ class Controller extends Model{
             }
         }
     }
+    function signup($firstname,$lastname,$username,$email,$password){
+        if($this->CreateUser($firstname,$lastname,$username,$email,$password)==="you are regsistered"){
+            session_start();
+            $_SESSION['username']=$username;
+            header('location:index.php');
+            exit;
+        }
+    }
 }
 
 ?>
