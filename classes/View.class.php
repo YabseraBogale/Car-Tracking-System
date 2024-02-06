@@ -1,6 +1,6 @@
 <?php
 
-class View extends Model{
+class View extends Controller{
     function loginform(){
         echo'
             <form action="" method="post">
@@ -12,10 +12,25 @@ class View extends Model{
         ';
     }
     function login($username,$paasword){
-        $result=$this->login($username,$paasword);
+        $this->login($username,$paasword);
+        
     }
-    function signupForm($firstname,$lastname,$username,$email,$password){
-
+    function signin($firstname,$lastname,$username,$email,$password){
+        $result=$this->CreateUser($firstname,$lastname,$username,$email,$password);
+        return $result;
+    }
+    function signupForm(){
+        echo'
+            <form action="" method="post">
+                firstname <input type="text" name="firstname" id="" require>
+                lastname <input type="text" name="lastname" id="" require>
+                username <input type="text" name="username" id=""require>
+                email <input type="email" name="" id="" require>
+                password <input type="password" name="password" id="" require>
+                <input type="submit" value="enter">
+                <input type="reset" value="clear">
+            </form>
+        ';
 
     }
 }
