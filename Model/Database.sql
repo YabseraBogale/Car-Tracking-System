@@ -18,14 +18,25 @@ create table User(
 
 create table Car(
 
-    id int not null primary key,
+    id int not null AUTO_INCREMENT primary key,
     platenumber varchar(15) not null,
     carimage varchar(20) not null,
     foreign key(id) references User(id)
 
 )
 
-ALTER TABLE User AUTO_INCREMENT = 1;
- 
-insert into User(id,firstname,lastname,username,email,password) values(?,'?','?','?','?','?');
-insert into Car(id,platenumber,carimage) values(?,'?','?')
+
+
+create table Admin(
+    id int not null AUTO_INCREMENT primary key,
+    username varchar(30)not null,
+    password varchar(20) not null
+
+)
+
+
+insert into Admin(username) values('?','?')
+insert into User(firstname,lastname,username,email,password) values('?','?','?','?','?');
+insert into Car(platenumber,carimage) values('?','?')
+
+Delete from CAR Where platenumber="?";
