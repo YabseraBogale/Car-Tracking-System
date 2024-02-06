@@ -15,7 +15,7 @@ class View extends Controller{
         $this->login($username,$paasword);
         
     }
-    function signin($firstname,$lastname,$username,$email,$password){
+    function signup($firstname,$lastname,$username,$email,$password){
         $result=$this->CreateUser($firstname,$lastname,$username,$email,$password);
         return $result;
     }

@@ -1,6 +1,14 @@
 <?php 
  include 'includes/includes.inc.php';
     $view = new View();
+    if($_SERVER['REQUEST_METHOD']==='POST'){
+        $firstname=$_POST['firstname'];
+        $lastname=$_POST['lastname'];
+        $username=$_POST['username'];
+        $email=$_POST['email'];
+        $password=$_POST['password'];
+        $view->signup($firstname,$lastname,$username,$email,$password);
+    }
 
 ?>
 <!DOCTYPE html>
