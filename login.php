@@ -1,3 +1,7 @@
+<?php 
+include 'includes/includes.inc.php';
+$view =new View(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +10,8 @@
     <title>login</title>
 </head>
 <body>
-    <form action="" method="post">
-        username <input type="text" name="username" id="">
-        password <input type="text" name="password" id="">
-        <input type="submit" value="login">
-    </form>
+    <?php 
+        $view->loginform();
+    ?>
 </body>
 </html>
