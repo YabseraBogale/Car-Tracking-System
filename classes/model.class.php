@@ -42,7 +42,7 @@ class Model extends Database{
         }
     }
     protected function AdminSeeAllUser(){
-        return $this->OpenConnection()->query("Select * from user");
+        return $this->OpenConnection()->query("Select username,password from user");
     }
     protected function AdminRemoveUser($id){
         $statment="Delete from User Where id=?";
