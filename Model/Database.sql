@@ -42,7 +42,10 @@ create table Admin(
 
 insert
 
-insert into Admin(username,password) values('?','?')
+insert into Admin(username,password) values('yabsera','12345678');
+insert into Admin(username,password) values('mikie','123456788');
+insert into Admin(username,password) values('Tare','123456789');
+
 insert into User(firstname,lastname,username,email,password) values('?','?','?','?','?');
 insert into Car(platenumber,carimage) values('?','?')
 insert into Location(lat,long) values(?,?)
