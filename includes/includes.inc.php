@@ -2,7 +2,7 @@
 
 spl_autoload_register('load');
 function load($class){
-    $path ='classes';
+    $path ='classes/';
     $extension='.class.php';
     $file= $path.$class.$extension;
     if(!file_exists($file)){

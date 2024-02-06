@@ -12,7 +12,7 @@ class Model extends Database{
         }
     }
     protected function Location($lat,$long){
-        $statment="INSERT into Location(lat,long) values(?,?)";
+        $statment="INSERT into Location(lat,lon) values(?,?)";
         $command=$this->OpenConnection()->prepare($statment);
         $stmt->bind_param("ss",$lat,$long);
         if($stmt->execute()){

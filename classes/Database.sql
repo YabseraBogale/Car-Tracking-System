@@ -23,24 +23,24 @@ create table Car(
     carimage varchar(20) not null,
     foreign key(id) references User(id)
 
-)
+);
 
 create table Location(
     id int not null AUTO_INCREMENT primary key,
     lat int not null,
-    long int not null,
-    foreign key(id) references Car(id)
-)
+    lon int not null,
+    foreign key(id) references User(id)
+);
 
 create table Admin(
     id int not null AUTO_INCREMENT primary key,
     username varchar(30)not null,
     password varchar(20) not null
 
-)
+);
 
 
-insert
+
 
 insert into Admin(username,password) values('yabsera','12345678');
 insert into Admin(username,password) values('mikie','123456788');
@@ -48,5 +48,5 @@ insert into Admin(username,password) values('Tare','123456789');
 
 insert into User(firstname,lastname,username,email,password) values('?','?','?','?','?');
 insert into Car(platenumber,carimage) values('?','?')
-insert into Location(lat,long) values(?,?)
+insert into Location(lat,lon) values(?,?)
 Delete from CAR Where platenumber="?";
