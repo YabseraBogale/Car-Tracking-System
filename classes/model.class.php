@@ -16,7 +16,7 @@ class Model extends Database{
         $command=$this->OpenConnection()->prepare($statment);
         $stmt->bind_param("ss",$lat,$long);
         if($stmt->execute()){
-            return "you are regsistered";
+            return "location entered";
         } else {
             return "try again";
         }
@@ -26,7 +26,7 @@ class Model extends Database{
         $command=$this->OpenConnection()->prepare($statment);
         $stmt->bind_param("ss",$platenumber,$carimage);
         if($stmt->execute()){
-            return "you are regsistered";
+            return "Added Car";
         } else {
             return "try again";
         }
@@ -36,7 +36,7 @@ class Model extends Database{
         $command=$this->OpenConnection()->prepare($statment);
         $stmt->bind_param("s",$platenumber);
         if($stmt->execute()){
-            return "you are regsistered";
+            return "you have removed car";
         } else {
             return "try again";
         }
@@ -49,7 +49,7 @@ class Model extends Database{
         $command=$this->OpenConnection()->prepare($id);
         $stmt->bind_param("i",$id);
         if($stmt->execute()){
-            return "you are regsistered";
+            return "you have removed user";
         } else {
             return "try again";
         }
