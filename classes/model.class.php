@@ -15,19 +15,31 @@ class Model extends Database{
         $statment="INSERT into Location(lat,long) values(?,?)";
         $command=$this->OpenConnection()->prepare($statment);
         $stmt->bind_param("ss",$lat,$long);
-        $stmt->execute();
+        if($stmt->execute()){
+            return "you are regsistered";
+        } else {
+            return "try again";
+        }
     }
     protected function AddCar($platenumber,$carimage){
         $statment="INSERT into Car(platenumber,carimage) values('?','?')";
         $command=$this->OpenConnection()->prepare($statment);
         $stmt->bind_param("ss",$platenumber,$carimage);
-        $stmt->execute();
+        if($stmt->execute()){
+            return "you are regsistered";
+        } else {
+            return "try again";
+        }
     }
     protected function RemoveCar($platenumber){
         $statment="Delete from CAR Where platenumber='?'";
         $command=$this->OpenConnection()->prepare($statment);
         $stmt->bind_param("s",$platenumber);
-        $stmt->execute();
+        if($stmt->execute()){
+            return "you are regsistered";
+        } else {
+            return "try again";
+        }
     }
     protected function AdminSeeAllUser(){
         return $this->OpenConnection()->query("Select * from user");
@@ -36,7 +48,11 @@ class Model extends Database{
         $statment="Delete from User Where id=?";
         $command=$this->OpenConnection()->prepare($id);
         $stmt->bind_param("i",$id);
-        $stmt->execute();
+        if($stmt->execute()){
+            return "you are regsistered";
+        } else {
+            return "try again";
+        }
     }
     protected function AdminAll(){
         return $this->OpenConnection()->query("Select * from Admin");
