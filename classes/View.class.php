@@ -16,7 +16,7 @@ class View extends Controller{
         
     }
     function signup($firstname,$lastname,$username,$email,$password){
-        $this->signup($firstname,$lastname,$username,$email,$password);
+        $this->CreateUser($firstname,$lastname,$username,$email,$password);
     }
     function signupForm(){
         echo'
@@ -24,7 +24,7 @@ class View extends Controller{
                 firstname <input type="text" name="firstname" id="" >
                 lastname <input type="text" name="lastname" id="" >
                 username <input type="text" name="username" id="">
-                email <input type="email" name="" id="" >
+                email <input type="email" name="email" id="" >
                 password <input type="password" name="password" id="">
                 <input type="submit" value="enter">
                 <input type="reset" value="clear">
