@@ -1,7 +1,7 @@
 <?php 
 class Model extends Database{
     protected function CreateUser($firstname,$lastname,$username,$email,$password){
-        $statment="INSERT INTO  User(firstname,lastname,username,email,password) values('?','?','?','?','?');";
+        $statment="INSERT INTO  User(firstname,lastname,username,email,password) values(?,?,?,?,?);";
         $command=$this->OpenConnection()->prepare($statment);
         $password=password_hash($password,PASSWORD_DEFAULT);
         $stmt->bind_param("sssss",$firstname,$lastname,$username,$email,$password);
@@ -18,7 +18,7 @@ class Model extends Database{
         }
     }
     protected function AddCar($platenumber,$carimage){
-        $statment="INSERT into Car(platenumber,carimage) values('?','?')";
+        $statment="INSERT into Car(platenumber,carimage) values(?,?)";
         $command=$this->OpenConnection()->prepare($statment);
         $stmt->bind_param("ss",$platenumber,$carimage);
         if($stmt->execute()){
@@ -28,7 +28,7 @@ class Model extends Database{
         }
     }
     protected function RemoveCar($platenumber){
-        $statment="Delete from CAR Where platenumber='?'";
+        $statment="Delete from CAR Where platenumber=?";
         $command=$this->OpenConnection()->prepare($statment);
         $stmt->bind_param("s",$platenumber);
         if($stmt->execute()){
