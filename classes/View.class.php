@@ -5,7 +5,7 @@ class View extends Controller{
         echo'
             <form action="" method="post">
                 username <input type="text" name="username" id="" required>
-                password <input type="text" name="password" id="" required>
+                password <input type="password" name="password" id="" required>
                 <input type="submit" value="login">
                 <input type="reset" value="cancel">
             </form>
