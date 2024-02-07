@@ -5,7 +5,13 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     $username=$_POST['username'];
     $password=$_POST['password'];
     $result=$view->login($username,$password);
-    echo $result['username']==='';
+    if($result['username']!==''){
+        session_start();
+        $_SESSION['username']=$username;
+        $_SESSION['logged']=true;
+        header('location: addcar.php');
+        exit;
+    }
 }
 ?>
 <!DOCTYPE html>
