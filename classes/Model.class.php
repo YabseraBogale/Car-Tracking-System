@@ -1,15 +1,11 @@
 <?php 
 class Model extends Database{
-    protected function CreateUser($firstname,$lastname,$username,$password,$email){
+    protected function CreateUser($firstname,$lastname,$username,$email,$password){
         $statment="INSERT INTO into User(firstname,lastname,username,email,password) values('?','?','?','?','?');";
         $command=$this->OpenConnection()->prepare($statment);
         $password=password_hash($password,PASSWORD_DEFAULT);
         $stmt->bind_param("sssss",$firstname,$lastname,$username,$email,$password);
-        if($stmt->execute()){
-            return "you are regsistered";
-        } else {
-            return "try again";
-        }
+        $stmt->execute();
     }
     protected function Location($lat,$long){
         $statment="INSERT into Location(lat,lon) values(?,?)";

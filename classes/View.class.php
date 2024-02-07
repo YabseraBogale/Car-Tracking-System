@@ -21,11 +21,11 @@ class View extends Controller{
     function signupForm(){
         echo'
             <form action="" method="post">
-                firstname <input type="text" name="firstname" id="" require>
-                lastname <input type="text" name="lastname" id="" require>
-                username <input type="text" name="username" id=""require>
-                email <input type="email" name="" id="" require>
-                password <input type="password" name="password" id="" require>
+                firstname <input type="text" name="firstname" id="" >
+                lastname <input type="text" name="lastname" id="" >
+                username <input type="text" name="username" id="">
+                email <input type="email" name="" id="" >
+                password <input type="password" name="password" id="">
                 <input type="submit" value="enter">
                 <input type="reset" value="clear">
             </form>
