@@ -20,7 +20,7 @@
 </head>
 <body>
     <?php 
-        $view->NavHtml();
+        $view->UserNavHtml();
         $view->signupForm();
     ?>
 </body>

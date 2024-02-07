@@ -15,6 +15,9 @@ $view=new View();
 <body>
     <?php 
         $view->UserNavHtml();
-    ?>    
+    ?>
+    <form action="" method="post">
+        
+    </form>    
 </body>
 </html>

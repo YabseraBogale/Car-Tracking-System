@@ -12,7 +12,7 @@ $view = new View();
 </head>
 <body>
     <?php 
-        $view->NavHtml();
+        $view->UserNavHtml();
     
     ?>
    

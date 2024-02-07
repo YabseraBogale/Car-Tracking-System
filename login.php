@@ -4,7 +4,7 @@ $view=new View();
 if($_SERVER['REQUEST_METHOD']==='POST'){
     $username=$_POST['username'];
     $password=$_POST['password'];
-    
+    $view->login($username,$password);
 }
 ?>
 <!DOCTYPE html>

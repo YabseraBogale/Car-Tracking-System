@@ -12,8 +12,8 @@ class View extends Controller{
         ';
     }
     function login($username,$password){
-        $result=$this->Login($username,$password);
-        echo $result;
+        $result=$this->AdminSeeAllUser($username,$password);
+        echo $result['username'];
         
     }
     function signup($firstname,$lastname,$username,$email,$password){
