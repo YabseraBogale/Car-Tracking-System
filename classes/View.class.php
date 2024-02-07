@@ -11,6 +11,7 @@ class View extends Controller{
             </form>
         ';
     }
+    
     function login($username,$password){
         $result=$this->AdminSeeAllUser($username,$password);
         return $result->fetch_assoc();
