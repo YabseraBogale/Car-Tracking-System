@@ -4,6 +4,7 @@ $view =new View();
 if($_SERVER['REQUEST_METHOD']==='POST'){
     $username=$_POST['username'];
     $password=$_POST['password'];
+    
 }
 ?>
 <!DOCTYPE html>
@@ -14,7 +15,8 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     <title>login</title>
 </head>
 <body>
-    <?php 
+    <?php
+        $view->NavHtml();
         $view->loginform();
     ?>
     
