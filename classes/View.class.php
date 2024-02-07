@@ -12,7 +12,7 @@ class View extends Controller{
         ';
     }
     function login($username,$password){
-        $result=$this->login($username,$password);
+        $result=$this->Login($username,$password);
         echo $result;
         
     }
@@ -37,7 +37,7 @@ class View extends Controller{
         ';
 
     }
-    function NavHtml(){
+    function GuestNavHtml(){
         echo'
             <nav>
                 <a href="index.php">home</a>
@@ -47,6 +47,17 @@ class View extends Controller{
             </nav>
         ';
     }
+    function UserNavHtml(){
+        echo'
+            <nav>
+                <a href="index.php">home</a>
+                <a href="logout.php">logout</a>
+                <a href="addcar.php">Add Car</a>
+                <a href="about.php">about</a>
+            </nav>
+        ';
+    }
+    
     
 }
 

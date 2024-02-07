@@ -1,6 +1,6 @@
 <?php 
 include 'includes/includes.inc.php';
-$view =new View();
+$view=new View();
 if($_SERVER['REQUEST_METHOD']==='POST'){
     $username=$_POST['username'];
     $password=$_POST['password'];
@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 </head>
 <body>
     <?php
-        $view->NavHtml();
+        $view->GuestNavHtml();
         $view->loginform();
     ?>
     

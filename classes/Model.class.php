@@ -16,8 +16,8 @@ class Model extends Database{
         $statment="Delete from Car Where platenumber='$platenumber'";
         $this->OpenConnection()->query($statment);
     }
-    protected function AdminSeeAllUser($username,$password){
-        return $this->OpenConnection()->query("Select username,password from User where username='$username' and password='$password'");
+    protected  function AdminSeeAllUser($username,$password){
+        return $this->OpenConnection()->query("Select * from User where username='$username' AND password='$password'");
     }
     protected function AdminRemoveUser($id){
         $statment="Delete from User Where id=$id";
