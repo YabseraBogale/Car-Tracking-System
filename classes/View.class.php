@@ -13,7 +13,7 @@ class View extends Controller{
     }
     function login($username,$password){
         $result=$this->AdminSeeAllUser($username,$password);
-        echo $result['username'];
+        return $result->fetch_assoc();
         
     }
     function signup($firstname,$lastname,$username,$email,$password){
