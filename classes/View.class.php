@@ -11,9 +11,18 @@ class View extends Controller{
             </form>
         ';
     }
+
+    function DeleteCar($platenumber){
+        $this->RemoverCar($platenumber);
+    }
     
+    function GetCar($username){
+        $result=$this->SeeId($username)->fetch_assoc();
+        $result=$this->SeeCar($result['id']);
+        return $result;
+    }
     function login($username,$password){
-        $result=$this->AdminSeeAllUser($username,$password);
+        $result=$AdminSeeAllUser($username,$password);
         return $result->fetch_assoc();
         
     }
@@ -40,6 +49,10 @@ class View extends Controller{
     }
     function GuestNavHtml(){
         echo'
+        <link rel="stylesheet" href="/assests/style.css">
+        <header>
+      <a href="#" class="logo"><img src="assests/Mercedes G63.jpg"></a>
+
             <nav>
                 <a href="index.php">home</a>
                 <a href="login.php">login</a>
@@ -50,12 +63,19 @@ class View extends Controller{
     }
     function UserNavHtml(){
         echo'
+        
+        <link rel="stylesheet" href="/assests/style.css">
+        <header>
+      <a href="#" class="logo"><img src="assests/Mercedes G63.jpg"></a>
+
             <nav>
                 <a href="index.php">home</a>
                 <a href="logout.php">logout</a>
                 <a href="addcar.php">Add Car</a>
+                <a href="see.php">see cars</a>
                 <a href="about.php">about</a>
             </nav>
+            </header>
         ';
     }
     

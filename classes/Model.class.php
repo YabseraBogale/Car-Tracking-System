@@ -8,8 +8,11 @@ class Model extends Database{
         $statment="INSERT into Location(lat,lon) values($lat,$$long)";
         $this->OpenConnection()->query($statment);
     }
-    protected function AddCar($platenumber,$carimage){
-        $statment="INSERT into Car(platenumber,carimage) values('$platenumber','$carimage')";
+    protected function SeeId($username){
+        return $this->OpenConnection()->query("select id from User where username='$id'");
+    }
+    protected function AddCar($id,$platenumber,$carimage){
+        $statment="INSERT into Car(id,platenumber,carimage) values($id,'$platenumber','$carimage')";
         $this->OpenConnection()->query($statment);
     }
     protected function RemoveCar($platenumber){
@@ -25,6 +28,9 @@ class Model extends Database{
     }
     protected function AdminAll(){
         return $this->OpenConnection()->query("Select * from Admin");
+    }
+    protected function SeeCar($id){
+        return $this->OpenConnection()->query("Select * from Car where id=$id");
     }
 }
 
